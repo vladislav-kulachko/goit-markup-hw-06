@@ -403,16 +403,24 @@
     <div class="modal">
       <button class="button-close" type="button" data-modal-close></button>
       <h2 class="modal-header">Оставьте свои данные, мы вам перезвоним</h2>
-      <form action="" class="form">
+      <form class="form" name="order-form">
         <label class="label">Имя</label>
         <input class="input" type="text" name="name">
         <label class="label">Телефон</label>
-        <input class="input" type="number" name="phone">
+        <input class="input" type="tel" name="phone">
         <label class="label">Почта</label>
         <input class="input" type="email" name="email">
         <label class="label">Комментарий</label>
-        <textarea class="input comment" rows="5" placeholder="Введите текст" name="comment"></textarea>
+        <textarea class="input comment" rows="6" placeholder="Введите текст" name="comment"></textarea>
+        <div class="agreement">
+          <input class="agreement-check" type="checkbox" value="agree" id="agreement-check">
+          <label class="agreement-text" for="agreement-check">Соглашаюсь с рассылкой и принимаю <span><a
+                class="agreement-text-link" href="">Условия
+                договора</a></span></label>
+        </div>
+        <button class="button-submit" type="submit">Отправить</button>
       </form>
+
     </div>
   </div>
   <script src="./modal.js"></script>
