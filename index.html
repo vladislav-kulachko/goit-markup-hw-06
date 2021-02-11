@@ -404,14 +404,14 @@
       <button class="button-close" type="button" data-modal-close></button>
       <h2 class="modal-header">Оставьте свои данные, мы вам перезвоним</h2>
       <form class="form" name="order-form">
-        <label class="label">Имя</label>
-        <input class="input" type="text" name="name">
-        <label class="label">Телефон</label>
-        <input class="input" type="tel" name="phone">
-        <label class="label">Почта</label>
-        <input class="input" type="email" name="email">
-        <label class="label">Комментарий</label>
-        <textarea class="input comment" rows="6" placeholder="Введите текст" name="comment"></textarea>
+        <label class="label" for="name">Имя</label>
+        <input class="input" type="text" name="name" id="name">
+        <label class="label" for="phone">Телефон</label>
+        <input class="input" type="tel" name="phone" id="phone">
+        <label class="label" for="mail">Почта</label>
+        <input class="input" type="email" name="mail" id="mail">
+        <label class="label" for="comment">Комментарий</label>
+        <textarea class="input comment" rows="6" placeholder="Введите текст" name="comment" id="comment"></textarea>
         <div class="agreement">
           <input class="agreement-check" type="checkbox" value="agree" id="agreement-check">
           <label class="agreement-text" for="agreement-check">Соглашаюсь с рассылкой и принимаю <span><a
