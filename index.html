@@ -397,23 +397,47 @@
           </li>
         </ul>
       </section>
+      <form class="subscription">
+        <label for="subscr">подпишитесь на рассылку</label><input type="email" name="mail" placeholder="E-mail"
+          id="subscr"><button type="submit">Подписаться</button>
+      </form>
     </div>
   </footer>
   <div class="backdrop is-hidden" data-modal>
     <div class="modal">
-      <button class="button-close" type="button" data-modal-close></button>
+      <button class="button-close" type="button" data-modal-close><svg width="11" height="11">
+          <use href="./img/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
       <h2 class="modal-header">Оставьте свои данные, мы вам перезвоним</h2>
       <form class="form" name="order-form">
-        <label class="label" for="name">Имя</label>
-        <input class="input" type="text" name="name" id="name">
-        <label class="label" for="phone">Телефон</label>
-        <input class="input" type="tel" name="phone" id="phone">
-        <label class="label" for="mail">Почта</label>
-        <input class="input" type="email" name="mail" id="mail">
-        <label class="label" for="comment">Комментарий</label>
-        <textarea class="input comment" rows="6" placeholder="Введите текст" name="comment" id="comment"></textarea>
+        <label class="label">
+          <span class="input-name">Имя</span>
+          <input class="input" type="text" name="name">
+          <span class="input-icon"><svg width="12" height="12">
+              <use href="./img/sprite.svg#icon-name"></use>
+            </svg></span>
+        </label>
+        <label class="label">
+          <span class="input-name">Телефон</span>
+          <input class="input" type="tel" name="phone">
+          <span class="input-icon"><svg width="13" height="13">
+              <use href="./img/sprite.svg#icon-phone"></use>
+            </svg></span>
+        </label>
+        <label class="label">
+          <span class="input-name">Почта</span>
+          <input class="input" type="email" name="mail">
+          <span class="input-icon"><svg width="15" height="12">
+              <use href="./img/sprite.svg#icon-mail"></use>
+            </svg></span>
+        </label>
+        <label class="label comment">
+          <span class="input-name">Комментарий</span>
+          <textarea class="input textaria" rows="7" placeholder="Введите текст" name="comment" id="comment"></textarea>
+        </label>
         <div class="agreement">
-          <input class="agreement-check" type="checkbox" value="agree" id="agreement-check">
+          <input class="agreement-check" type="checkbox" value="received" id="agreement-check">
           <label class="agreement-text" for="agreement-check">Соглашаюсь с рассылкой и принимаю <span><a
                 class="agreement-text-link" href="">Условия
                 договора</a></span></label>
