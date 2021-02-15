@@ -14,6 +14,16 @@ body {
   color: var(--primary-black-color);
   background-color: var(--white-color);
 }
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
 h1,
 h2,
 h3,
@@ -176,7 +186,6 @@ img {
   text-transform: uppercase;
 }
 .order-service-button {
-  min-width: 200px;
   border-radius: 4px;
   padding: 10px 32px;
   border: none;
@@ -471,6 +480,7 @@ img {
   min-width: auto;
   padding: 6px 22px;
   font-family: inherit;
+  font-style: inherit;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.625;
@@ -562,7 +572,7 @@ img {
 }
 .backdrop {
   position: fixed;
-  transition: opacity 500ms var(--main-trans-tm-func);
+  transition: opacity 250ms var(--main-trans-tm-func);
   min-width: 100%;
   min-height: 100%;
   left: 0;
@@ -571,7 +581,6 @@ img {
 }
 .modal {
   position: absolute;
-  opacity: 1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
@@ -587,6 +596,11 @@ img {
 }
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(1.2);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .button-close {
   position: absolute;
@@ -619,43 +633,51 @@ img {
   position: relative;
   display: block;
   margin-bottom: 10px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.167;
-  letter-spacing: 0.01em;
-  color: var(--secondary-black-color);
 }
-.label:hover .input {
+.label:focus-within .input,
+.input:not(:placeholder-shown) {
   border-color: var(--blue-color);
 }
-.label:hover .input-icon,
-.label:focus-within .input-icon {
+.label:focus-within .input-icon,
+.input:not(:placeholder-shown) + .input-icon {
   fill: var(--blue-color);
 }
-
 .input {
   display: block;
+  outline: none;
   width: 100%;
-  padding: 12px 42px;
+  height: 40px;
+  padding: 0px 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
 .input-name {
   display: block;
   margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+  color: var(--secondary-black-color);
 }
 .input-icon {
   display: block;
   position: absolute;
   bottom: 11px;
   left: 12px;
+  width: 18px;
+  height: 18px;
+}
+.input-icon svg {
+  width: 100%;
+  height: 100%;
 }
 .label.comment {
-  /* height: 138px; */
   margin-bottom: 20px;
 }
 .input.textaria {
   resize: none;
+  height: 138px;
   padding: 12px 16px;
 }
 .agreement {
@@ -664,8 +686,24 @@ img {
   justify-content: center;
   margin-bottom: 30px;
 }
-.agreement-check {
-  margin-right: 8px;
+.agreement-check-cust {
+  display: block;
+  width: 16px;
+  height: 15px;
+  background-image: url(../img/icon-off-check.svg);
+  margin-right: 7px;
+  /* border: 2px solid; */
+  /* border-radius: 4px; */
+}
+.agreement-check:checked + .agreement-check-cust {
+  background-image: url(../img/icon-check.svg);
+  /* background-size: contain; */
+  /* background-color: var(--blue-color); */
+  /* border-color: var(--blue-color); */
+  /* background-origin: border-box; */
+}
+.agreement-check:focus + .agreement-check-cust {
+  box-shadow: 0 0 0 2px var(--blue-color);
 }
 .agreement-text {
   font-weight: 400;
@@ -678,20 +716,27 @@ img {
   color: var(--blue-color);
 }
 .button-submit {
+  display: inline-block;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;
-  display: inline-block;
+  padding: 10px 56px;
   letter-spacing: 0.06em;
   color: var(--white-color);
   background-color: var(--blue-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  border: 0;
-  padding: 10px 56px;
-  margin-left: 124px;
+  border: none;
 }
-.subscription label {
+.subscription {
+  /* width: 100%; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 39px;
+  margin-left: auto;
+}
+.subscr-title {
   display: block;
   font-weight: 700;
   font-size: 14px;
@@ -699,33 +744,38 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--white-color);
+  margin-bottom: 20px;
 }
-.subscription input {
-  /* display: block; */
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-  border-radius: 4px;
-  padding: 15px;
+.subscr-input {
+  display: block;
+  width: 358px;
+  padding: 14px;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
   background-color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  margin-right: 12px;
 }
-.subscription button {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 30px;
-  text-align: center;
-  letter-spacing: 0.06em;
-  color: var(--white-color);
-  background-color: var(--blue-color);
+.subscription .button-submit {
+  position: relative;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 29px;
   padding-right: 62px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border: none;
+}
+.icon-send {
+  position: absolute;
+  top: 13px;
+  right: 28px;
+  width: 24px;
+  height: 24px;
+}
+.subscription svg {
+  width: 100%;
+  height: 100%;
 }

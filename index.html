@@ -35,12 +35,12 @@
         </ul>
       </nav>
       <ul class="address-header">
-        <li class="header-mail-item"><a class="header-mail-link" href="mailto:info@devstudio.com"><svg width="16"
-              height="12" class="header-icon">
+        <li class="header-mail-item"><a class="header-mail-link" href="mailto:info@devstudio.com">
+            <svg width="16" height="12" class="header-icon">
               <use href="./img/sprite.svg#icon-envelope"></use>
-            </svg>info@devstudio.com</a>
-        <li class="header-phone-item"><a class="header-phone-link" href="tel:+380961111111"><svg width="10" height="16"
-              class="header-icon">
+            </svg>info@devstudio.com</a></li>
+        <li class="header-phone-item"><a class="header-phone-link" href="tel:+380961111111">
+            <svg width="10" height="16" class="header-icon">
               <use href="./img/sprite.svg#icon-smartphone">
               </use>
             </svg>
@@ -398,8 +398,13 @@
         </ul>
       </section>
       <form class="subscription">
-        <label for="subscr">подпишитесь на рассылку</label><input type="email" name="mail" placeholder="E-mail"
-          id="subscr"><button type="submit">Подписаться</button>
+        <label>
+          <span class="subscr-title">подпишитесь на рассылку</span>
+          <input class="subscr-input" type="email" name="mail" placeholder="E-mail">
+        </label>
+        <button class="button-submit" type="submit">Подписаться<span class="icon-send"><svg>
+              <use href="./img/sprite.svg#icon-send"></use>
+            </svg></span></button>
       </form>
     </div>
   </footer>
@@ -413,22 +418,22 @@
       <form class="form" name="order-form">
         <label class="label">
           <span class="input-name">Имя</span>
-          <input class="input" type="text" name="name">
-          <span class="input-icon"><svg width="12" height="12">
+          <input class="input" type="text" name="name" placeholder=" ">
+          <span class="input-icon"><svg>
               <use href="./img/sprite.svg#icon-name"></use>
             </svg></span>
         </label>
         <label class="label">
           <span class="input-name">Телефон</span>
-          <input class="input" type="tel" name="phone">
-          <span class="input-icon"><svg width="13" height="13">
+          <input class="input" type="tel" name="phone" placeholder=" ">
+          <span class="input-icon"><svg>
               <use href="./img/sprite.svg#icon-phone"></use>
             </svg></span>
         </label>
         <label class="label">
           <span class="input-name">Почта</span>
-          <input class="input" type="email" name="mail">
-          <span class="input-icon"><svg width="15" height="12">
+          <input class="input" type="email" name="mail" placeholder=" ">
+          <span class="input-icon"><svg>
               <use href="./img/sprite.svg#icon-mail"></use>
             </svg></span>
         </label>
@@ -436,15 +441,15 @@
           <span class="input-name">Комментарий</span>
           <textarea class="input textaria" rows="7" placeholder="Введите текст" name="comment" id="comment"></textarea>
         </label>
-        <div class="agreement">
-          <input class="agreement-check" type="checkbox" value="received" id="agreement-check">
-          <label class="agreement-text" for="agreement-check">Соглашаюсь с рассылкой и принимаю <span><a
-                class="agreement-text-link" href="">Условия
-                договора</a></span></label>
-        </div>
+        <label class="agreement">
+          <input class="agreement-check visually-hidden" type="checkbox" value="received">
+          <span class="agreement-check-cust"></span>
+          <span class="agreement-text">Соглашаюсь с рассылкой и принимаю <span><a class="agreement-text-link"
+                href="">Условия
+                договора</a></span></span>
+        </label>
         <button class="button-submit" type="submit">Отправить</button>
       </form>
-
     </div>
   </div>
   <script src="./modal.js"></script>
