@@ -660,6 +660,7 @@ img {
 .input::placeholder {
   color: rgba(117, 117, 117, 0.5);
 }
+
 .input-field {
   position: relative;
   display: block;
@@ -690,6 +691,12 @@ img {
 .input:focus + .input-icon,
 .input:not(:placeholder-shown) + .input-icon {
   fill: var(--blue-color);
+}
+.input:invalid:required {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+.input:invalid {
+  background-color: rgba(255, 0, 0, 0.2);
 }
 .agreement {
   display: flex;
